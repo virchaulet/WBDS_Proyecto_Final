@@ -3,13 +3,13 @@
 
 # **Objetivos Específicos**
 
-1-Como mi tesis doctoral está enmarcada en el Diseño Racional de fármacos me propuse implementar como tema de Bioinformática, Docking Molecular.
+1-Como mi tesis doctoral está enmarcada en el **Diseño Racional de fármacos** me propuse implementar como tema de **Bioinformática**, **Docking Molecular**.
 
-2-Esta técnica se puede llevar a cabo mediante un Software que utiliza comandos de Python, por lo que podré aplicar lo visto durante el desarrollo del Camp.
+2-Esta técnica se puede llevar a cabo mediante un Software que utiliza **comandos de Python**, por lo que podré aplicar lo visto durante el desarrollo del Camp.
 
-3-A los resultados del Docking, se los puede analizar mediante la biblioteca Pandas con Google Colaboratory y otras bibliotecas como , vistos también durante este Camp.
+3-A los **Resultados del Docking**, se los puede analizar mediante la **biblioteca Pandas** con **Google Colaboratory** y otras bibliotecas como **Seaborn, Scipy, Sklearn**, vistos también durante este Camp.
 
-4-Para poder llevar a cabo el Docking se deben aplicar otras herramientas tanto de la Bioinformática como de la Ciencia de Datos y Lenguaje de Programación, como por ejemplo el uso de visualizadores moleculares (como Chimera o Pymol) y los IDEs o Entornos de Desarrollo (como Visual Studio Code o Spyder).
+4-Para poder llevar a cabo el Docking se deben aplicar otras herramientas tanto de la Bioinformática como de la Ciencia de Datos y Lenguaje de Programación, como por ejemplo el uso de **visualizadores moleculares**(como **Chimera** o **Pymol**) y los **IDEs** o **Entornos de Desarrollo** (como **Visual Studio Code** o **Spyder**).
 
 
 # **Bioinformática**
@@ -163,7 +163,7 @@ Cambio el tamaño de la caja, en mi caso se disminuyo de tamaño
 
 
 ### 4.Script
-Una vez obtenidos los archivos PDBQT del receptor y el ligando, y los parámetros de la caja del Docking, es momento de armar el script con comandos en lenguaje Python para correr el Docking, utilizando el editor de código Visual Studio Code\.
+Una vez obtenidos los archivos PDBQT del receptor y el ligando, y los parámetros de la caja del Docking, es momento de armar el script con comandos en lenguaje Python para correr el Docking, utilizando el editor de código **Visual Studio Code**\.
 
 Python\_ Script\_AutoDock VINA\_WBDS\_final
 
