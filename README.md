@@ -1,4 +1,4 @@
-#### WBDS: Bioinformática y Ciencia de Datos
++#### **WBDS: Bioinformática y Ciencia de Datos**
 
 
 ### Objetivos Específicos:
