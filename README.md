@@ -1,7 +1,7 @@
-#### **WBDS: Bioinformática y Ciencia de Datos**
+### **WBDS: Bioinformática y Ciencia de Datos**
 
 
-+### **Objetivos Específicos**
+### **Objetivos Específicos**
 
 1-Como mi tesis doctoral está enmarcada en el Diseño Racional de fármacos me propuse implementar como tema de Bioinformática, Docking Molecular.
 
@@ -12,7 +12,7 @@
 4-Para poder llevar a cabo el Docking se deben aplicar otras herramientas tanto de la Bioinformática como de la Ciencia de Datos y Lenguaje de Programación, como por ejemplo el uso de visualizadores moleculares (como Chimera o Pymol) y los IDEs o Entornos de Desarrollo (como Visual Studio Code o Spyder).
 
 
-+### **Bioinformática**
+### **Bioinformática**
 ## Software utilizado para el Docking Molecular: Autodock Vina
 
 ## Requisitos del Software: son necesarios:
@@ -183,7 +183,7 @@ Nota: Para este archivo.py se usaron los script de open access dados por el tuto
 Abro una terminal y en la misma llamo a Python\_ Script\_AutoDock VINA\_WBDS\_final y lo ejecuto\.
 
 
-+### **Ciencia de Datos**
+### **Ciencia de Datos**
 # 1. Análisis de Resultados: Pandas
 Una vez corrido el Docking, debemos analizar los datos del output y del archivo de Resultados, para lo cual utilicé un **Cuaderno de Google** y a la **librería Pandas**\.
 
