@@ -1,7 +1,7 @@
-### **WBDS: Bioinformática y Ciencia de Datos**
+# **WBDS: Bioinformática y Ciencia de Datos**
 
 
-### **Objetivos Específicos**
+# **Objetivos Específicos**
 
 1-Como mi tesis doctoral está enmarcada en el Diseño Racional de fármacos me propuse implementar como tema de Bioinformática, Docking Molecular.
 
@@ -12,7 +12,7 @@
 4-Para poder llevar a cabo el Docking se deben aplicar otras herramientas tanto de la Bioinformática como de la Ciencia de Datos y Lenguaje de Programación, como por ejemplo el uso de visualizadores moleculares (como Chimera o Pymol) y los IDEs o Entornos de Desarrollo (como Visual Studio Code o Spyder).
 
 
-### **Bioinformática**
+# **Bioinformática**
 ## Software utilizado para el Docking Molecular: Autodock Vina
 
 ## Requisitos del Software: son necesarios:
@@ -49,7 +49,7 @@ El paquete Python meeko es un nuevo tipo de paquete desarrollado en el laborator
 ## Aplicación del tutorial de AutodockVina
 Comencemos con nuestro primer ejemplo de acoplamiento, donde el patrón de uso típico sería acoplar una sola molécula en un receptor rígido. En este ejemplo acoplaremos el fármaco anticanceroso aprobado imatinib (Gleevec; PDB entrada 1iep ) en la estructura de c-Abl usando AutoDock Vina. El objetivo de este protocolo es el dominio quinasa del protooncogén tirosina proteína quinasa c-Abl. La proteína es un objetivo importante para la quimioterapia contra el cáncer, en particular, el tratamiento de la leucemia mielógena crónica.
 
-# Proteína
+### Proteína
 Si buscamos esta proteína en la base de datos Protein Data Bank, encontraremos el cristal de la misma, es decir que podremos conocer la estructura de la proteína de forma experimental.
 
 Luego, con esta estructura podremos realizar las técnicas computacionales que son de nuestro interés.
@@ -58,7 +58,7 @@ Si miramos en detalle, vemos que es un cristal obtenido por Difracción de Rayos
 
 Si vamos a la pestaña “3D View” de PDB  veremos la proteína en color verde junto al ligando en el sitio de drogabilidad.
 
-# Pockets
+### Pockets
 Si buscamos más información con respecto a la drogabilidad de esta proteína lo podremos hacer en CaviDB, una base de datos en línea gratuita que provee información sobre las cavidades proteicas y sus propiedades, que permite estudiar también la diversidad conformacional de las cavidades proteicas.
 
 Para esta proteína, encontraremos tanto la cadena A y la cadena B, en cada una de las cuales podremos estudiar sus bolsillos junto a sus características.
@@ -79,7 +79,7 @@ Además en el grafico “Activated residues per cavity” vemos los residuos act
 Para este tutorial, se proporciona todo el material básico y se puede encontrar en el AutoDock-Vina/example/basic\_docking/data directorio (o en GitHub ). Si alguna vez te sientes perdido, siempre puedes echar un vistazo a la solución aquí: AutoDock-Vina/example/basic\_docking/solution. Todos los scripts de Python utilizados aquí (excepto prepare\_receptor y mk\_prepare\_ligand.py) se encuentran en el AutoDock-Vina/example/autodock\_scripts directorio, como alternativa, también puede encontrarlos aquí en GitHub .
 
 ## Procedimiento
-# 1. Preparación del receptor/proteína
+### 1. Preparación del receptor/proteína
 
 Durante este paso, crearemos un archivo PDBQT de nuestro receptor que contiene solo los átomos polares de hidrógeno y las cargas parciales. Para este paso, utilizaremos la prepare\_receptor herramienta de comandos de ADFR Suite.
 
@@ -110,7 +110,7 @@ adding gasteiger charges to peptide
 
 Nos devuelve en la carpeta donde estamos trabajando el pdb, un archivo del receptor en formato pdbqt
 
-# 2. Preparación del ligando
+### 2. Preparación del ligando
 
 Este paso es muy similar al paso anterior. También crearemos un archivo PDBQT a partir de un archivo de molécula de ligando (en formato MOL/MOL2 o SDF) utilizando el Meeko paquete python (consulte las instrucciones de instalación aquí: Requisitos de software ).
 
@@ -136,7 +136,7 @@ $ ubicacion/mk\_prepare\_ligand.py -i 1iep\_ligand.sdf -o 1iep\_ligand.pdbqt
 En mi computadora:
 (base) virginia@virginia-IdeaPad-3-15ITL6:~/Escritorio/Doctorado/LideB/Docking/Tutorial/Archivos$ /home/virginia/ADFRsuite-1.0/bin/prepare\_ligand -l Ligando1.mol2 -o LIG.pdbqt
 
-# 3.Caja de Docking
+### 3.Caja de Docking
 Para poder Dockear, debemos determinar la ubicación y el tamaño de la caja del Docking\. Para realizar esto recurrimos a la inspección visual del Ligando en la Proteína de estudio mediante un visualizador como Chimera o Pymol\.
 
 En mi caso utilicé el visualizador Chimera para poder definir ambos parámetros:
@@ -162,7 +162,7 @@ Se clickea en Resize search volumen using “cambiar el tamaño del volumen de b
 Cambio el tamaño de la caja, en mi caso se disminuyo de tamaño
 
 
-# 4.Script
+### 4.Script
 Una vez obtenidos los archivos PDBQT del receptor y el ligando, y los parámetros de la caja del Docking, es momento de armar el script con comandos en lenguaje Python para correr el Docking, utilizando el editor de código Visual Studio Code\.
 
 Python\_ Script\_AutoDock VINA\_WBDS\_final
@@ -179,12 +179,12 @@ En este script deberemos setear:
 Nota: Para este archivo.py se usaron los script de open access dados por el tutorial de Autodock Vina para Dockear.
 
 
-# 5. Corrida del Docking
+### 5. Corrida del Docking
 Abro una terminal y en la misma llamo a Python\_ Script\_AutoDock VINA\_WBDS\_final y lo ejecuto\.
 
 
-### **Ciencia de Datos**
-# 1. Análisis de Resultados: Pandas
+# **Ciencia de Datos**
+### 1. Análisis de Resultados: Pandas
 Una vez corrido el Docking, debemos analizar los datos del output y del archivo de Resultados, para lo cual utilicé un **Cuaderno de Google** y a la **librería Pandas**\.
 
 **output\_file.txt = Ligando,TOP SCORE**
@@ -197,7 +197,7 @@ Una vez corrido el Docking, debemos analizar los datos del output y del archivo 
 Para realizar el analisis, se puede crear un **DataFrame** con los Scores obtenidos para cada conformación de ligando luego del Docking
 Con estos resultados vimos que el modelo 1 del ligando es el que mejor Score tiene (a valor más negativo de Score frente al resto de los valores, más estable es la interacción con la proteína).
 
-# 2. Análisis de Resultados: scipy, seaborn, sklearn
+### 2. Análisis de Resultados: scipy, seaborn, sklearn
 Luego de obtener curva Score vs Modelos, quise estudiar si existe correlación entre los Modelos y el Score obtenido luego del Docking, y en caso de que exista, quise estudiar si se aproxima a una correlación lineal.
 
 Para esto se aplicaron las bibliotecas:
@@ -332,7 +332,7 @@ Como vemos, el R² arrojó un valor más bien medio (≈ 0.71), lo que nos indic
 Eso no significa necesariamente que el modelo sea inválido, sino que la relación lineal encontrada explica de bastante completo a la variable y, aunque podría ser mejor su correlación.
 
 
-### Conclusión
+# Conclusión
 
 De acuerdo a los objetivos propuestos y lo realizado durante este trabajo, puedo concluir que pude realizar mi primer **Docking Molecular**, obteniendo las estructuras de la proteína y ligando de una base de datos. Este docking pudo hacerse siguiendo un **tutorial brindado por AutoDockVina**, el cual contiene scripts en lenguaje de Python.
 
@@ -342,7 +342,7 @@ Finalmente, concluímos que **la pose 1 del ligando fue la de mejor Score**, es 
 
 
 
-### Bibliografía
+# Bibliografía
 
 https://www.rcsb.org/structure/1iep
 
