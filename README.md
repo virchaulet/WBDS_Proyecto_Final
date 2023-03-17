@@ -200,6 +200,7 @@ Abro una **terminal** de Linux y en la misma llamo a **Python\_ Script\_AutoDock
 #### 1. Análisis de Resultados: Pandas
 Una vez corrido el Docking, debemos analizar los datos del output y del archivo de Resultados, para lo cual utilicé un **Cuaderno de Google** y a la **librería Pandas**\.
 
+Nota: este Cuaderno de Google está subido como archivo "
 **output\_file.txt = Ligando,TOP SCORE**
 
 **LIG.pdbqt**,-13.16
