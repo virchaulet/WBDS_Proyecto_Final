@@ -200,15 +200,16 @@ Abro una **terminal** de Linux y en la misma llamo a **Python\_ Script\_AutoDock
 #### 1. Análisis de Resultados: Pandas
 Una vez corrido el Docking, debemos analizar los datos del output y del archivo de Resultados, para lo cual utilicé un **Cuaderno de Google** y a la **librería Pandas**\.
 
-Nota: este Cuaderno de Google está subido como archivo "
+Los archivos de salida son:
 **output\_file.txt = Ligando,TOP SCORE**
 
 **LIG.pdbqt**,-13.16
 
 **Resultados\_LIG.pdbqt**= Nos devuelve 8 modelos, debido a que de las 10 poses seteadas, el algoritmo solo puede resolver 8.
 
-Para realizar el analisis, se puede crear un **DataFrame** con los Scores obtenidos para cada conformación de ligando luego del Docking
-Con estos resultados vimos que el modelo 1 del ligando es el que mejor Score tiene (a valor más negativo de Score frente al resto de los valores, más estable es la interacción con la proteína).
+Nota: este Cuaderno de Google está subido como archivo "**Cuaderno_Trabajo_Final_Docking.ipynb**"
+
+Para realizar el análisis, se puede abrir un Cuaderno de Google y crear un **DataFrame** con los Scores obtenidos para cada conformación de ligando luego del Docking.
 
 #### 2. Análisis de Resultados: scipy, seaborn, sklearn
 Luego de obtener curva Score vs Modelos, quise estudiar si existe correlación entre los Modelos y el Score obtenido luego del Docking, y en caso de que exista, quise estudiar si se aproxima a una correlación lineal.
@@ -346,9 +347,10 @@ Eso no significa necesariamente que el modelo sea inválido, sino que la relaci�
 
 ## Conclusión
 
-De acuerdo a los objetivos propuestos y lo realizado durante este trabajo, puedo concluir que pude realizar mi primer **Docking Molecular**, obteniendo las estructuras de la proteína y ligando de una base de datos. Este docking pudo hacerse siguiendo un **tutorial brindado por AutoDockVina**, el cual contiene scripts en lenguaje de Python.
+De acuerdo a los objetivos propuestos y lo realizado durante este trabajo, puedo concluir que pude realizar mi primer **Docking Molecular**, obteniendo las estructuras de la proteína y ligando de una base de datos. Este docking pudo hacerse siguiendo un **tutorial brindado por AutoDockVina**, el cual contiene scripts en lenguaje de Python, pudiendo implementar lo aprendido durante el Camp.
 
-Luego los resultados obtenidos pudieron ser analizados por herramientas vistas durante el Camp, como fue el uso de la **biblioteca de Pandas**, y sus respectivas funciones. Además se pudo recurrir a herramientas estadísticas como es la correlación de datos, y si los mismos ajustan a una regresión lineal.
+Luego los resultados obtenidos del Docking pudieron ser analizados por herramientas vistas, como fue el uso de la **biblioteca de Pandas**, y sus respectivas funciones. Con estos resultados vimos que el **modelo 1 del ligando** es el que mejor Score tiene (a valor más negativo de Score frente al resto de los valores, más estable es la interacción con la proteína).
+Además se pudo recurrir a herramientas estadísticas como es la correlación de datos, y si los mismos ajustan a una regresión lineal.
 
 Finalmente, concluímos que **la pose 1 del ligando fue la de mejor Score**, es decir la pose de ligando que resultó con la **interacción más estable con la proteína**. Además pudimos ver que los Scores se correlacionan con las poses de los ligandos y se ajustan a un modelo lineal.
 
