@@ -13,11 +13,14 @@
 
 
 # **Bioinformática**
+**Docking Molecular: Acoplamiento proteína-ligando**
+El acoplamiento molecular es una técnica de **diseño de fármacos** basada en la estructura ampliamente utilizada. Utilizamos esta tecnología para **predecir las conformaciones 3D más probables de ligandos de moléculas pequeñas dentro de los sitios de unión objetivo** y para proporcionar proyecciones cuantitativas de las variaciones de energía involucradas en el evento de reconocimiento intermolecular. Además, estas estimaciones cuantitativas de la energía de unión  proporcionan clasificaciones para los compuestos acoplados, que es un parámetro útil para seleccionar ligandos para perfiles experimentales. En el diseño de fármacos, el método de acoplamiento molecular se utiliza principalmente para buscar moléculas pequeñas (hits) que tengan una buena afinidad con las moléculas diana de las bases de datos de moléculas pequeñas. >
+
 ## Software utilizado para el Docking Molecular: Autodock Vina
 
 ## Requisitos del Software: son necesarios:
 
-1. Paquete de software ADFR: proporciona una serie de herramientas de software para el acoplamiento automatizado y las tareas periféricas.
+**1.Paquete de software ADFR:** proporciona una serie de herramientas de software para el acoplamiento automatizado y las tareas periféricas.
 
 El paquete de software ADFR se desarrolló en el laboratorio Sanner del Centro de Biología Estructural Computacional (CCSB), anteriormente conocido como Laboratorio de Gráficos Moleculares (MGL) del Instituto de Investigación Scripps para la visualización y el análisis de estructuras moleculares. Puede encontrar más información sobre el proceso de instalación del paquete de software ADFR aquí: https://ccsb.scripps.edu/adfr/downloads . La versión actual contiene las siguientes herramientas para acoplar:
 
@@ -31,15 +34,7 @@ El paquete de software ADFR se desarrolló en el laboratorio Sanner del Centro d
 
 Además, el paquete de software ADFR proporciona una serie de herramientas de software para el acoplamiento automatizado y las tareas periféricas. Estas herramientas se implementan utilizando los lenguajes de programación Python, C++ y C y una filosofía de componentes reutilizables. Para evitar discrepancias en los paquetes de Python, optamos por cambiar la suite ADFR con un intérprete de Python autónomo que está aislado del intérprete de Python predeterminado instalado en su computadora (excepto para las instalaciones de Windows). Los detalles sobre la implementación y los paquetes proporcionados por el paquete de software ADFR se pueden encontrar aquí: https://ccsb.scripps.edu/adfr/implementation
 
-Citas :
-
-* Zhang, Y., Forli, S., Omelchenko, A. y Sanner, MF (2019). AutoGridFR: Mejoras en AutoDock Affinity Maps y herramientas de software asociadas. Revista de Química Computacional, 40(32), 2882-2886.
-* Zhang, Y. y Sanner, MF (2019). AutoDock CrankPep: combinación de plegamiento y acoplamiento para predecir complejos de proteína-péptido. Bioinformática, 35(24), 5121-5127.
-* Ravindranath, PA y Sanner, MF (2016). AutoSite: un enfoque automatizado para la predicción de pseudoligandos, desde la identificación de sitios de unión a ligandos hasta la predicción de átomos de ligandos clave. Bioinformática, 32(20), 3142-3149.
-* Ravindranath, PA, Forli, S., Goodsell, DS, Olson, AJ y Sanner, MF (2015). AutoDockFR: avances en el acoplamiento proteína-ligando con flexibilidad del sitio de unión explícitamente especificada. Biología computacional PLoS, 11(12), e1004586.
-* Zhao, Y., Stoffler, D. y Sanner, M. (2006). Representación jerárquica y multiresolución de la flexibilidad de las proteínas. Bioinformática, 22(22), 2768-2774.
-
-2\. Meeko:
+**2\. Meeko:**
 
 El paquete Python meeko es un nuevo tipo de paquete desarrollado en el laboratorio de Forli también en el Centro de Biología Estructural Computacional (CCSB) . Proporciona herramientas que cubren otros aspectos del acoplamiento que no maneja el paquete de software ADFR. Este paquete proporciona herramientas adicionales para los siguientes protocolos de acoplamiento:
 
@@ -50,7 +45,7 @@ El paquete Python meeko es un nuevo tipo de paquete desarrollado en el laborator
 Comencemos con nuestro primer ejemplo de acoplamiento, donde el patrón de uso típico sería acoplar una sola molécula en un receptor rígido. En este ejemplo acoplaremos el fármaco anticanceroso aprobado imatinib (Gleevec; PDB entrada 1iep ) en la estructura de c-Abl usando AutoDock Vina. El objetivo de este protocolo es el dominio quinasa del protooncogén tirosina proteína quinasa c-Abl. La proteína es un objetivo importante para la quimioterapia contra el cáncer, en particular, el tratamiento de la leucemia mielógena crónica.
 
 ### Proteína
-Si buscamos esta proteína en la base de datos Protein Data Bank, encontraremos el cristal de la misma, es decir que podremos conocer la estructura de la proteína de forma experimental.
+Si buscamos esta proteína en la base de datos **Protein Data Bank**, encontraremos el cristal de la misma, es decir que podremos conocer la estructura de la proteína de forma experimental.
 
 Luego, con esta estructura podremos realizar las técnicas computacionales que son de nuestro interés.
 
@@ -59,17 +54,20 @@ Si miramos en detalle, vemos que es un cristal obtenido por Difracción de Rayos
 Si vamos a la pestaña “3D View” de PDB  veremos la proteína en color verde junto al ligando en el sitio de drogabilidad.
 
 ### Pockets
-Si buscamos más información con respecto a la drogabilidad de esta proteína lo podremos hacer en CaviDB, una base de datos en línea gratuita que provee información sobre las cavidades proteicas y sus propiedades, que permite estudiar también la diversidad conformacional de las cavidades proteicas.
+
+La **drogabilidad** es un concepto que describe cuán factible es que la proteína blanco se una fuertemente a un compuesto tipo droga (típicamente Kd menor a 1 μM) y que dicha unión sea biológicamente relevante, es decir, desencadene el efecto farmacológico deseado.
+
+En el **diseño racional de fármacos** resulta esencial caracterizar las interacciones moleculares que puede ofrecer el blanco proteico para ser aprovechadas por moléculas pequeñas o compuestos tipo droga. La identificación de hot spots o regiones en la superficie proteica que aportan una gran contribución a la energía libre de unión proteína-ligando y, por ende, resultan cruciales para establecer dicha unión, sirve tanto para evaluar la drogabilidad de un posible  blanco como para optimizar compuestos líderes en cuanto al incremento de su afinidad>
+
+Si buscamos más información con respecto a la **drogabilidad de esta proteína** lo podremos hacer en **CaviDB**, una base de datos en línea gratuita que provee información sobre las cavidades proteicas y sus propiedades, que permite estudiar también la diversidad conformacional de las cavidades proteicas.
 
 Para esta proteína, encontraremos tanto la cadena A y la cadena B, en cada una de las cuales podremos estudiar sus bolsillos junto a sus características.
 
-
-Para la cadena A de la proteína: Como vemos, la cadena A de la proteína tiene 18 cavidades, de las cuales la cavidad 1 es la drogable, y es la de interés al momento de pensar en diseño de fármacos. Esta cavidad tiene la particularidad de ser más hidrofóbica que el resto de la superficie de la proteína, la cual interacciona con el medio en donde la misma se encuentre.
+**Para la cadena A de la proteína:** Como vemos, la cadena A de la proteína tiene **18 cavidades**, de las cuales la cavidad 1 es la drogable, y es la de interés al momento de pensar en diseño de fármacos. Esta cavidad tiene la particularidad de ser más hidrofóbica que el resto de la superficie de la proteína, la cual interacciona con el medio en donde la misma se encuentre.
 En este gráfico podemos ver las características de la cavidad drogable de la cadena A como el score del pocket (bolsillo), los residuos con carga negativa, los residuos con carga positiva, el score de hidrofobicidad, etc.
 Ademas, en el grafico de “Activated residues per cavity” vemos los residuos activados por cavidad considerando su pKa en la cadena A.
 
-
-Para la cadena B de la proteína: Como vemos, la cadena B de la proteína tiene 21 cavidades, de las cuales la cavidad 1 es la drogable, y es la de interés al momento de pensar en diseño de fármacos. Esta cavidad tiene la particularidad de ser más hidrofóbica que el resto de la superficie de la proteína, la cual interacciona con el medio en donde la misma se encuentre.
+**Para la cadena B de la proteína: ** Como vemos, la cadena B de la proteína tiene **21 cavidades**, de las cuales la cavidad 1 es la drogable, y es la de interés al momento de pensar en diseño de fármacos. Esta cavidad tiene la particularidad de ser más hidrofóbica que el resto de la superficie de la proteína, la cual interacciona con el medio en donde la misma se encuentre.
 En este gráfico podemos ver las características de la cavidad drogable de la cadena B como el score del pocket (bolsillo), los residuos con carga negativa, los residuos con carga positiva, el score de hidrofobicidad, etc.
 Además en el grafico “Activated residues per cavity” vemos los residuos activados por cavidad considerando su pKa en la cadena B.
 
@@ -343,9 +341,12 @@ Finalmente, concluímos que **la pose 1 del ligando fue la de mejor Score**, es 
 
 
 # Bibliografía
+https://drug-discovery.creative-biostructure.com/molecular-docking-p39?gclid=CjwKCAjw_MqgBhAGEiwAnYOAevOfGSp5WSJB4Tyr0Arb2EnLM3ZAFGmpo2eS1pdeIy747onbp4UXBBoCyW8QAvD_BwE
 
 https://www.rcsb.org/structure/1iep
 
 https://www.cavidb.org/chains/6290f658d58b5cfe1dd4c12a?q=1IEP
+
+https://bibliotecadigital.exactas.uba.ar/download/tesis/tesis_n6457_Arcon.pdf
 
 https://autodock-vina.readthedocs.io/en/latest/docking\_python.html#
