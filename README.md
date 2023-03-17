@@ -201,6 +201,7 @@ Abro una **terminal** de Linux y en la misma llamo a **Python\_ Script\_AutoDock
 Una vez corrido el Docking, debemos analizar los datos del output y del archivo de Resultados, para lo cual utilicé un **Cuaderno de Google** y a la **librería Pandas**\.
 
 Los archivos de salida son:
+
 **output\_file.txt = Ligando,TOP SCORE**
 
 **LIG.pdbqt**,-13.16
@@ -224,7 +225,7 @@ Para esto se aplicaron las bibliotecas:
 
 **¿Cuáles de estas variables están relacionadas?** 😛
 
-Para responder esta pregunta, una buena primera forma de aproximarse es generar una matriz de correlación, que nos dirá el grado en que los cambios de cualquiera de las variables acompañan los cambios de cualquiera de las otras ↔️.
+i)Para responder esta pregunta, una buena primera forma de aproximarse es generar una **matriz de correlación**, que nos dirá el grado en que los cambios de cualquiera de las variables acompañan los cambios de cualquiera de las otras ↔️.
 
 Para ello, los DataFrames cuentan con la operación corr:
 
@@ -232,7 +233,7 @@ Para ello, los DataFrames cuentan con la operación corr:
 
 **correlaciones**
 
-Esta matriz mostrará, por cada par de variables, cuán relacionadas están en una escala de -1 a 1, siendo:
+Esta matriz mostrará, por cada par de variables, cuán relacionadas están en una **escala de -1 a 1**, siendo:
 
 **1:** altamente correlacionadas y directamente proporcionales. ↗️ Si una variable crece, la otra también;
 
@@ -243,32 +244,34 @@ Esta matriz mostrará, por cada par de variables, cuán relacionadas están en u
 
 **correlaciones['Score']**
 
-En términos absolutos, la correlación entre estas dos variables es mayor a 0.5 (recordemos que 0 representa la no-correlación y 1, la correlación máxima);
-Y además la correlación es de signo positivo, lo que indica una relación directa.
+En términos absolutos, la correlación entre estas dos variables es mayor a 0.5 y además la correlación es de signo positivo, lo que indica una relación directa.
 
-En nuestro caso vemos que la correlación entre Modelo y Score es de 0.84, por lo que vemos que está correlacionada.
+Para nuestro caso vemos que la **correlación entre Modelo y Score es de 0.84, por lo que vemos que está correlacionada.**
 
-Otra forma útil de visualizar estas correlaciones es mediante un **mapa de calor** 🥵, que asigne puntos más claros a aquellos pares con mayor correlación:
+
+
+ii)Otra forma útil de visualizar estas correlaciones es mediante un **mapa de calor** 🥵, que asigne puntos más claros a aquellos pares con mayor correlación:
 
 **sns.heatmap(correlaciones.abs())**
 
-Todo parece indicar que existe un vínculo entre el Modelo y el Score de este lote de datos. Con esto en mente, ya podemos intentar expresar este vínculo como **Score = f(Modelo)**, siendo f una función lineal, ¿no? 😀
+Para nuestro caso **Todo parece indicar que existe un vínculo entre el Modelo y el Score de este lote de datos.** 
 
-Bueno, si bien tenemos elementos para explorar esa posibilidad, no nos apresuremos 🐢. La relación podría aún no ser lineal, o incluso podría no ser significativa y deberse a, lisa y llanamente, la casualidad.
+
+Con esto en mente, ya podemos intentar expresar este vínculo como **Score = f(Modelo)**, siendo f una función lineal, ¿no? 😀
+
+Bueno, si bien tenemos elementos para explorar esa posibilidad, no nos apresuremos 🐢. **La relación podría aún no ser lineal, o incluso podría no ser significativa y deberse a, lisa y llanamente, la casualidad.**
 
 Por eso, se harán algunas pruebas más.
 
-📈 Primero, graficaremos las observaciones empleando un **regplot**, que combina un gráfico de dispersión y superpone los resultados sobre una recta ideal de regresión:
+i)📈 Primero, graficaremos las observaciones empleando un **regplot**, que combina un gráfico de dispersión y superpone los resultados sobre una recta ideal de regresión:
 
 **sns.regplot(x="Modelo", y="Score", data=df)**
 
 Y luego calcularemos: **Coeficiente de correlación de Pearson** y su **valor P**
 
-El primero es nuevamente, una medida de co-variación entre las variables, tal que valores absolutos cercanos a 1 indican alta correlación, mientras que los cercanos a 0 indican correlación baja;
+**Coeficiente de correlación de Pearson:** una medida de co-variación entre las variables, tal que valores absolutos cercanos a 1 indican alta correlación, mientras que los cercanos a 0 indican correlación baja;
 
-El segundo es una medida de confianza que nos dirá cuán probable es que los resultados sean producto de la casualidad. Cuanto más cercana a cero, menos probable es que el resultado sea producto del azar.
-
-En la práctica se suele considerar no significativo a cualquier resultado con pvalue por encima de 0.05 (o 0.01, si se busca más rigor).
+**Valor P:** es una medida de confianza que nos dirá cuán probable es que los resultados sean producto de la casualidad. Cuanto más cercana a cero, menos probable es que el resultado sea producto del azar. En la práctica se suele considerar **no significativo** a cualquier resultado con **pvalue** por encima de **0.05** (o 0.01, si se busca más rigor), es decir que será **significativo** aquel cuyo **p-valor < 0.05**.
 
 **corr, pvalue = pearsonr(x = df['Modelo'], y = df['Score'])**
 
@@ -282,18 +285,18 @@ Coeficiente de correlación de Pearson: 0.8448507044302611
 
 P-value: 0.008283899402752945
 
-El resultado es significativo y el valor de pearson coincide con el obtenido mediante corr() debido a que **corr() utiliza por defecto el método de Pearson ('pearson')**...
-
-El p-valor es cercano a cero, indicando que el resultado no es producto del azar. p-valor < 0.05 es significativo.
+El **p-valor es cercano a cero**, siendo el resultado **significativo** e indicando que no es producto del azar y el **valor de pearson coincide con el obtenido mediante corr()** debido a que corr() utiliza por defecto el método de Pearson ('pearson'). 
 
 
-Ahora que validamos gráfica y numéricamente que la correlación es significativa (aunque medianamente fuerte ≈ 0.84), podemos finalmente desarrollar (o como se suele decir frecuentemente, **ajustar**) nuestro modelo de **regresión lineal simple**.
+ii)Ahora que validamos gráfica y numéricamente que la correlación es significativa (aunque medianamente fuerte ≈ 0.84), podemos finalmente desarrollar (o como se suele decir frecuentemente, **ajustar**) nuestro modelo de **regresión lineal simple**.
 
-💺 Ajustar al modelo consiste en estimar, a partir de los datos disponibles:
+💺 **Ajustar al modelo consiste en estimar**, a partir de los datos disponibles:
 
--la recta que minimice la distancia ε entre las observaciones de x y ésta;
+-la recta que **minimice la distancia ε** entre las observaciones de x y ésta;
 
--encontrar los valores de los coeficientes de regresión que maximizan la probabilidad de que la recta prediga los valores observados.
+-encontrar los **valores de los coeficientes de regresión** que maximizan la probabilidad de que la recta prediga los valores observados.
+
+
 
 El método más utilizado para ésto es el de **mínimos cuadrados ordinarios** (o OLS, por sus siglas en inglés) y **scikit-learn** lo implementa mediante LinearRegression():
 
@@ -318,41 +321,45 @@ Luego podremos imprimir los valores encontrados de **ordenada al origen** (inter
 
 **print("Pendiente:", list(zip(X.columns, modelo.coef\_.flatten())))**
 
+Para nuestro caso:
+
 Ordenada: -12.827
 
 Pendiente: [('Modelo', 0.3806666666666668)]
 
 
-Por un lado pudimos establecer que existe un vínculo entre ambas variables (corr ≈ 0.84) y que dicho vínculo no parece el mero producto del azar (pvalue ≪ 0.05), y por otro pudimos aproximarlo a una recta, Pero aún estamos lejos de haber evaluado completamente al modelo. 🙃
+Por un lado pudimos establecer que existe un **vínculo entre ambas variables (corr ≈ 0.84)** y que dicho vínculo **no parece el mero producto del azar (pvalue ≪ 0.05)**, y por otro pudimos aproximarlo a una recta, pero **aún estamos lejos de haber evaluado completamente al modelo.** 🙃
 
 
-**Aún hay muchas cosas que no sabemos!** Por ejemplo: ¿cuán bueno es el modelo? ¿Los datos caen efectivamente en la recta? ¿Cuánto se alejan de ella?
+**Aún hay muchas cosas que no sabemos!** Por ejemplo: **¿cuán bueno es el modelo? ¿Los datos caen efectivamente en la recta?**
 
 
-Una primera aproximación a las dos primeras preguntas es utilizar la **métrica R2**, que nos indica cuán bueno es el ajuste del modelo.
+Una primera aproximación a las preguntas es utilizar la **métrica R2**, que nos indica cuán bueno es el ajuste del modelo.
 
-Esta medida estadística oscila entre **0** (los datos predicho no se ajustan a las observaciones) y **1** (los datos predichos se ajustan perfectamente a las observaciones).
+Esta medida estadística oscila entre:
 
+**0**:los datos predicho no se ajustan a las observaciones
+
+**1**:los datos predichos se ajustan perfectamente a las observaciones.
 
 La operación score de nuestro modelo nos retornará justamente esta métrica (que dicho sea de paso, en los modelos de regresión lineal simple su valor se corresponde con el cuadrado de la correlación de Pearson 💡):
 
 **print("Coeficiente de determinación R²:", modelo.score(X.values, y))**
 
+Para nuestro caso:
+
 Coeficiente de determinación R²: 0.7137727127763094
 
-Como vemos, el R² arrojó un valor más bien medio (≈ 0.71), lo que nos indica que el modelo es medianamente bueno.
-
-Eso no significa necesariamente que el modelo sea inválido, sino que la relación lineal encontrada explica de bastante completo a la variable y, aunque podría ser mejor su correlación.
+Como vemos, el **R² arrojó un valor más bien medio (≈ 0.71), lo que nos indica que el modelo es medianamente bueno**. Eso no significa necesariamente que el modelo sea inválido, sino que la relación lineal encontrada explica de bastante completo a la variable y, aunque podría ser mejor su correlación.
 
 
 ## Conclusión
 
-De acuerdo a los objetivos propuestos y lo realizado durante este trabajo, puedo concluir que pude realizar mi primer **Docking Molecular**, obteniendo las estructuras de la proteína y ligando de una base de datos. Este docking pudo hacerse siguiendo un **tutorial brindado por AutoDockVina**, el cual contiene scripts en lenguaje de Python, pudiendo implementar lo aprendido durante el Camp.
+De acuerdo a los objetivos propuestos y lo realizado durante este trabajo, puedo concluir que pude realizar mi primer **Docking Molecular**, obteniendo las estructuras de la **proteína** y **ligando** de **Protein Data Bank**. Este docking pudo hacerse siguiendo un **tutorial brindado por AutoDockVina**, el cual contiene scripts en lenguaje de Python, pudiendo implementar lo aprendido durante el Camp.
 
-Luego los resultados obtenidos del Docking pudieron ser analizados por herramientas vistas, como fue el uso de la **biblioteca de Pandas**, y sus respectivas funciones. Con estos resultados vimos que el **modelo 1 del ligando** es el que mejor Score tiene (a valor más negativo de Score frente al resto de los valores, más estable es la interacción con la proteína).
-Además se pudo recurrir a herramientas estadísticas como es la correlación de datos, y si los mismos ajustan a una regresión lineal.
+Luego los resultados obtenidos del Docking pudieron ser analizados por herramientas vistas, como fue el uso de la **biblioteca de Pandas**, y sus respectivas funciones. Además se pudo recurrir a herramientas estadísticas como es la correlación de datos, y si los mismos ajustan a una regresión lineal.
 
-Finalmente, concluímos que **la pose 1 del ligando fue la de mejor Score**, es decir la pose de ligando que resultó con la **interacción más estable con la proteína**. Además pudimos ver que los Scores se correlacionan con las poses de los ligandos y se ajustan a un modelo lineal.
+Finalmente, concluímos que **la pose 1 del ligando fue la de mejor Score**, es decir la pose de ligando que resultó con la **interacción más estable con la proteína** (valor más negativo de Score frente al resto de los valores). Además pudimos ver que los Scores se correlacionan con las poses de los ligandos y se ajustan a un modelo lineal.
 
 
 ## Bibliografía
