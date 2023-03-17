@@ -67,7 +67,7 @@ Para esta proteína, encontraremos tanto la cadena A y la cadena B, en cada una 
 En este gráfico podemos ver las características de la cavidad drogable de la cadena A como el score del pocket (bolsillo), los residuos con carga negativa, los residuos con carga positiva, el score de hidrofobicidad, etc.
 Ademas, en el grafico de “Activated residues per cavity” vemos los residuos activados por cavidad considerando su pKa en la cadena A.
 
-**Para la cadena B de la proteína: ** Como vemos, la cadena B de la proteína tiene **21 cavidades**, de las cuales la cavidad 1 es la drogable, y es la de interés al momento de pensar en diseño de fármacos. Esta cavidad tiene la particularidad de ser más hidrofóbica que el resto de la superficie de la proteína, la cual interacciona con el medio en donde la misma se encuentre.
+**Para la cadena B de la proteína:** Como vemos, la cadena B de la proteína tiene **21 cavidades**, de las cuales la cavidad 1 es la drogable, y es la de interés al momento de pensar en diseño de fármacos. Esta cavidad tiene la particularidad de ser más hidrofóbica que el resto de la superficie de la proteína, la cual interacciona con el medio en donde la misma se encuentre.
 En este gráfico podemos ver las características de la cavidad drogable de la cadena B como el score del pocket (bolsillo), los residuos con carga negativa, los residuos con carga positiva, el score de hidrofobicidad, etc.
 Además en el grafico “Activated residues per cavity” vemos los residuos activados por cavidad considerando su pKa en la cadena B.
 
