@@ -163,7 +163,7 @@ Cambio el tamaño de la caja, en mi caso se disminuyo de tamaño
 ### 4.Script
 Una vez obtenidos los archivos PDBQT del receptor y el ligando, y los parámetros de la caja del Docking, es momento de armar el script con comandos en lenguaje Python para correr el Docking, utilizando el editor de código **Visual Studio Code**\.
 
-Python\_ Script\_AutoDock VINA\_WBDS\_final
+**Python\_ Script\_AutoDock VINA\_WBDS\_final**
 
 En este script deberemos setear:
 
