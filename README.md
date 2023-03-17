@@ -77,7 +77,9 @@ Además en el **grafico “Activated residues per cavity”** vemos los residuos
 
 ### Materiales para este tutorial
 Considerando el tutorial brindado por AutoDockVina, se proporciona todo el material básico y se puede encontrar en el **AutoDock-Vina/example/basic\_docking/data directorio** (o en GitHub). 
+
 Si alguna vez te sentís perdido, siempre puedes echar un vistazo a la solución aquí: **AutoDock-Vina/example/basic\_docking/solution**. 
+
 Todos los **scripts de Python** utilizados en este tutorial (excepto prepare\_receptor y mk\_prepare\_ligand.py) se encuentran en el **AutoDock-Vina/example/autodock\_scripts** directorio, como alternativa, también podés encontrarlos en GitHub.
 
 
@@ -100,6 +102,7 @@ Existen muchas herramientas para agregar los átomos de hidrógeno faltantes y l
 3-Adicione átomos de hidrógeno y carga:
 
 i) **Tools → Structure Editing → AddH → OK.**  Dado que el archivo de ligandos no incluye los átomos de hidrógeno, los agregaremos.
+
 ii) **Tools → Structure Editing → AddCharges → Gasteiger → OK.**
 
 4-Guarde el **PDB de la proteína**, no la sesión.
@@ -133,6 +136,7 @@ Existen muchas herramientas para agregar los átomos de hidrógeno faltantes y l
 3-Adicione átomos de hidrógeno y carga:
 
 i) **Tools → Structure Editing → AddH → OK.**  Dado que el archivo de ligandos no incluye los átomos de hidrógeno, los agregaremos.
+
 ii)**Tools → Structure Editing → AddCharges → Gasteiger → OK.**
 
 4-Guarde el **MOL2 de ligando**, no la sesión.
