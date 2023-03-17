@@ -14,7 +14,6 @@
 
 
 ## **Bioinformática**
-
 Como herramienta bioinformática a implementar, decidí hacer mi primer **Docking Molecular** aplicado al Diseño de fármacos, es decir un **acoplamiento proteína-ligando**, el cual se define como:
 
 "El acoplamiento molecular es una técnica de **diseño de fármacos** basada en la estructura ampliamente utilizada. Utilizamos esta tecnología para **predecir las conformaciones 3D más probables de ligandos de moléculas pequeñas dentro de los sitios de unión objetivo** y para proporcionar proyecciones cuantitativas de las variaciones de energía involucradas en el evento de reconocimiento intermolecular. Además, estas estimaciones cuantitativas de la energía de unión  proporcionan clasificaciones para los compuestos acoplados, que es un parámetro útil para seleccionar ligandos para perfiles experimentales. En el diseño de fármacos, el método de acoplamiento molecular se utiliza principalmente para buscar moléculas pequeñas (hits) que tengan una buena afinidad con las moléculas diana de las bases de datos de moléculas pequeñas."
@@ -45,20 +44,17 @@ El paquete Python meeko es un nuevo tipo de paquete desarrollado en el laborator
 * macrociclos
 
 ### Aplicación del tutorial de AutodockVina
-Comencemos con nuestro primer ejemplo de acoplamiento, donde el patrón de uso típico sería acoplar una sola molécula en un receptor rígido. En este ejemplo acoplaremos el fármaco anticanceroso aprobado imatinib (Gleevec; PDB entrada 1iep ) en la estructura de c-Abl usando AutoDock Vina. El objetivo de este protocolo es el dominio quinasa del protooncogén tirosina proteína quinasa c-Abl. La proteína es un objetivo importante para la quimioterapia contra el cáncer, en particular, el tratamiento de la leucemia mielógena crónica.
+Comencemos con nuestro primer ejemplo de acoplamiento, donde el patrón de uso típico sería acoplar una sola molécula en un receptor rígido. En este ejemplo acoplaremos el **fármaco anticanceroso** aprobado **imatinib** (Gleevec; PDB entrada 1iep ) en la estructura de **c-Abl** usando AutoDock Vina. El objetivo de este protocolo es el **dominio quinasa del protooncogén tirosina proteína quinasa c-Abl**. La proteína es un objetivo importante para la quimioterapia contra el cáncer, en particular, el tratamiento de la leucemia mielógena crónica.
 
 #### Proteína
-Si buscamos esta proteína en la base de datos **Protein Data Bank**, encontraremos el cristal de la misma, es decir que podremos conocer la estructura de la proteína de forma experimental.
+Si buscamos esta proteína en la base de datos **Protein Data Bank**, encontraremos el cristal de la misma, es decir que podremos conocer la estructura de la proteína de forma experimental. Luego, con esta estructura podremos realizar las técnicas computacionales que son de nuestro interés.
 
-Luego, con esta estructura podremos realizar las técnicas computacionales que son de nuestro interés.
+Si miramos en detalle, vemos que es un cristal obtenido por **Difracción de Rayos X** del dominio cinasa C-ABL en complejo con Imatinib (STI-571) cuyo PDB es **1IEP**.
 
-Si miramos en detalle, vemos que es un cristal obtenido por Difracción de Rayos X del dominio cinasa C-ABL en complejo con Imatinib (STI-571) cuyo PDB es 1IEP.
-
-Si vamos a la pestaña “3D View” de PDB  veremos la proteína en color verde junto al ligando en el sitio de drogabilidad.
+Si vamos a la pestaña “3D View” de PDB  veremos la proteína en color verde junto al ligando en el **sitio de drogabilidad**.
 
 #### Pockets
-
-La **drogabilidad** es un concepto que describe cuán factible es que la proteína blanco se una fuertemente a un compuesto tipo droga (típicamente Kd menor a 1 μM) y que dicha unión sea biológicamente relevante, es decir, desencadene el efecto farmacológico deseado.
+La **drogabilidad** es un concepto que describe cuán factible es que la proteína blanco se una fuertemente a un compuesto tipo droga (típicamente Kd menor a 1 μM) y que dicha unión sea biológicamente relevante, es decir, desencadene el **efecto farmacológico deseado**.
 
 En el **diseño racional de fármacos** resulta esencial caracterizar las interacciones moleculares que puede ofrecer el blanco proteico para ser aprovechadas por moléculas pequeñas o compuestos tipo droga. La identificación de las regiones en la superficie proteica que aportan una gran contribución a la energía libre de unión proteína-ligando y, por ende, resultan cruciales para establecer dicha unión, sirve tanto para evaluar la drogabilidad de un posible  blanco como para optimizar compuestos líderes en cuanto al incremento de su afinidad>
 
@@ -67,42 +63,44 @@ Si buscamos más información con respecto a la **drogabilidad de esta proteína
 Para esta proteína, encontraremos tanto la cadena A y la cadena B, en cada una de las cuales podremos estudiar sus bolsillos junto a sus características.
 
 **Para la cadena A de la proteína:** Como vemos, la cadena A de la proteína tiene **18 cavidades**, de las cuales la cavidad 1 es la drogable, y es la de interés al momento de pensar en diseño de fármacos. Esta cavidad tiene la particularidad de ser más hidrofóbica que el resto de la superficie de la proteína, la cual interacciona con el medio en donde la misma se encuentre.
-En este gráfico podemos ver las características de la cavidad drogable de la cadena A como el score del pocket (bolsillo), los residuos con carga negativa, los residuos con carga positiva, el score de hidrofobicidad, etc.
-Ademas, en el grafico de “Activated residues per cavity” vemos los residuos activados por cavidad considerando su pKa en la cadena A.
+CaviDB nos brinda un gráfico en el cual podemos ver las **características de la cavidad drogable de la cadena A** como el score del pocket (bolsillo), los residuos con carga negativa, los residuos con carga positiva, el score de hidrofobicidad, etc.
+Ademas, en el **grafico de “Activated residues per cavity”** vemos los residuos activados por cavidad considerando su pKa en la cadena A.
 
 **Para la cadena B de la proteína:** Como vemos, la cadena B de la proteína tiene **21 cavidades**, de las cuales la cavidad 1 es la drogable, y es la de interés al momento de pensar en diseño de fármacos. Esta cavidad tiene la particularidad de ser más hidrofóbica que el resto de la superficie de la proteína, la cual interacciona con el medio en donde la misma se encuentre.
-En este gráfico podemos ver las características de la cavidad drogable de la cadena B como el score del pocket (bolsillo), los residuos con carga negativa, los residuos con carga positiva, el score de hidrofobicidad, etc.
-Además en el grafico “Activated residues per cavity” vemos los residuos activados por cavidad considerando su pKa en la cadena B.
+CaviDB nos brinda un gráfico en el cual podemos ver las **características de la cavidad drogable de la cadena B** como el score del pocket (bolsillo), los residuos con carga negativa, los residuos con carga positiva, el score de hidrofobicidad, etc.
+Además en el **grafico “Activated residues per cavity”** vemos los residuos activados por cavidad considerando su pKa en la cadena B.
 
 
 ### Materiales para este tutorial
-
-Para este tutorial, se proporciona todo el material básico y se puede encontrar en el AutoDock-Vina/example/basic\_docking/data directorio (o en GitHub ). Si alguna vez te sientes perdido, siempre puedes echar un vistazo a la solución aquí: AutoDock-Vina/example/basic\_docking/solution. Todos los scripts de Python utilizados aquí (excepto prepare\_receptor y mk\_prepare\_ligand.py) se encuentran en el AutoDock-Vina/example/autodock\_scripts directorio, como alternativa, también puede encontrarlos aquí en GitHub.
+Considerando el tutorial brindado por AutoDockVina, se proporciona todo el material básico y se puede encontrar en el **AutoDock-Vina/example/basic\_docking/data directorio** (o en GitHub). 
+Si alguna vez te sentís perdido, siempre puedes echar un vistazo a la solución aquí: **AutoDock-Vina/example/basic\_docking/solution**. 
+Todos los **scripts de Python** utilizados en este tutorial (excepto prepare\_receptor y mk\_prepare\_ligand.py) se encuentran en el **AutoDock-Vina/example/autodock\_scripts** directorio, como alternativa, también podés encontrarlos en GitHub.
 
 
 ### Procedimiento
 #### 1. Preparación del receptor/proteína
 
-Durante este paso, crearemos un archivo PDBQT de nuestro receptor que contiene solo los átomos polares de hidrógeno y las cargas parciales. Para este paso, utilizaremos la prepare\_receptor herramienta de comandos de ADFR Suite.
+Durante este paso, crearemos un archivo PDBQT de nuestro receptor que contiene solo los átomos polares de hidrógeno y las cargas parciales. Para este paso, utilizaremos la **prepare\_receptor** herramienta de comandos de **ADFR Suite**.
 
-Como requisito previo, un archivo de coordenadas del receptor/proteína debe contener todos los átomos de hidrógeno.
+Como requisitos previos:
+*Un archivo de coordenadas del receptor/proteína debe contener todos los átomos de hidrógeno.
 
-Si está utilizando estructuras experimentales (por ejemplo, del banco de datos de proteínas ), use un editor de texto para eliminar aguas, ligandos, cofactores e iones que se consideren innecesarios para el acoplamiento.
+*Si está utilizando estructuras experimentales (por ejemplo, del banco de datos de proteínas ), use un editor de texto para eliminar aguas, ligandos, cofactores e iones que se consideren innecesarios para el acoplamiento.
 
-Existen muchas herramientas para agregar los átomos de hidrógeno faltantes a una proteína, en mi caso utilicé Chimera, el cual es un programa de visualización que es capaz de leer un archivo pdb y generar una representación tridimensional de la macromolécula con la cual el usuario puede interactuar. Los átomos de hidrógeno se agregaron a través del siguiente proceso:
+Existen muchas herramientas para agregar los átomos de hidrógeno faltantes y la carga a una proteína, en mi caso utilicé **Chimera**, el cual es un programa de visualización que es capaz de leer un archivo pdb y generar una representación tridimensional de la macromolécula con la cual el usuario puede interactuar. Los átomos de hidrógeno y la carga se agregaron a través del siguiente proceso:
 
-1-Cargué el PDB descargado de Protein Data Bank que contiene el ligando y la proteína junto a moléculas de agua y átomos de Cloro. (Este archivo contiene las coordenadas del receptor tomadas de la entrada 1iep del PDB )
+1-Cargue el PDB descargado de Protein Data Bank que contiene el ligando y la proteína junto a moléculas de agua y átomos de Cloro. (Este archivo contiene las coordenadas del receptor tomadas de la entrada 1iep del PDB )
 
-2-Seleccioné las moléculas de agua, átomos de Cloro y el ligando y los elimine.
+2-Seleccione las moléculas de agua, átomos de Cloro y el ligando y los elimine.
 
 3-Adicione átomos de hidrógeno y carga:
 
-1) **Tools → Structure Editing → AddH → OK.**   Dado que el archivo de ligandos no incluye los átomos de hidrógeno, los agregaremos.
-2) **Tools → Structure Editing → AddH →Gasteiger → OK.**
+i) **Tools → Structure Editing → AddH → OK.**  Dado que el archivo de ligandos no incluye los átomos de hidrógeno, los agregaremos.
+ii) **Tools → Structure Editing → AddCharges → Gasteiger → OK.**
 
-4-Guarde el PDB de la proteína, no la sesión.
+4-Guarde el **PDB de la proteína**, no la sesión.
 
-Luego procedemos a transformar el archivo de la proteína de un PDB a un PDBQT mediante:
+Luego procedemos a transformar el archivo de la proteína de un **PDB** a un **PDBQT** mediante:
 **$ ubicacion/prepare\_receptor -r 1iep\_receptorH.pdb -o 1iep\_receptor.pdbqt**
 
 En mi computadora:
@@ -110,33 +108,38 @@ En mi computadora:
 
 adding gasteiger charges to peptide
 
-Nos devuelve en la carpeta donde estamos trabajando el pdb, un archivo del receptor en formato pdbqt
+Nos devuelve **en la carpeta donde estamos trabajando** el pdb, un archivo del **receptor en formato pdbqt**.
 
 
 #### 2. Preparación del ligando
 
-Este paso es muy similar al paso anterior. También crearemos un archivo PDBQT a partir de un archivo de molécula de ligando (en formato MOL/MOL2 o SDF) utilizando el Meeko paquete python (consulte las instrucciones de instalación aquí: Requisitos de software ).
+Este paso es muy similar al paso anterior. También crearemos un archivo PDBQT a partir de un archivo de molécula de ligando (en formato MOL/MOL2 o SDF) utilizando el **Meeko paquete python**.
 
-**1iep\_ligand.sdf** Para mayor comodidad, se proporciona el archivo (ver data directorio).
+Como requisitos previos:
+*Un archivo de coordenadas del ligando debe contener todos los átomos de hidrógeno.
 
-Pero puede obtenerlo directamente del PDB aquí: 1iep (ver enlace para la molécula STI).
+*Si está utilizando estructuras experimentales (por ejemplo, del banco de datos de proteínas ), use un editor de texto para eliminar aguas, proteínas, cofactores e iones que se consideren innecesarios para el acoplamiento.
 
-1-Cargué el PDB descargado de Protein Data Bank que contiene el ligando y la proteína junto a moléculas de agua y átomos de Cloro.
+Existen muchas herramientas para agregar los átomos de hidrógeno faltantes y la carga al ligando, en mi caso utilicé **Chimera**, el cual es un programa de visualización que es capaz de leer un archivo pdb y generar una representación tridimensional de la molécula con la cual el usuario puede interactuar. Los átomos de hidrógeno y la carga se agregaron a través del siguiente proceso:
 
-2-Seleccioné las moléculas de agua, átomos de Cloro y la proteína y los elimine.
+1-Cargue el PDB descargado de Protein Data Bank que contiene el ligando y la proteína junto a moléculas de agua y átomos de Cloro.
+
+2-Seleccione las moléculas de agua, átomos de Cloro y la proteína y elimine.
 
 3-Adicione átomos de hidrógeno y carga:
 
-1) **Tools → Structure Editing → AddH → OK.**  Dado que el archivo de ligandos no incluye los átomos de hidrógeno, los agregaremos.
-2)**Tools → Structure Editing → AddH →Gasteiger → OK.**
+i) **Tools → Structure Editing → AddH → OK.**  Dado que el archivo de ligandos no incluye los átomos de hidrógeno, los agregaremos.
+ii)**Tools → Structure Editing → AddCharges → Gasteiger → OK.**
 
-4-Guarde el MOL2 de ligando, no la sesión.
+4-Guarde el **MOL2 de ligando**, no la sesión.
 
-Luego procedemos a transformar el archivo del ligando de un MOL2 a un PDBQT mediante:
+Luego procedemos a transformar el archivo del ligando de un **MOL2** a un **PDBQT** mediante:
 **$ ubicacion/mk\_prepare\_ligand.py -i 1iep\_ligand.sdf -o 1iep\_ligand.pdbqt**
 
 En mi computadora:
 (base) virginia@virginia-IdeaPad-3-15ITL6:~/Escritorio/Doctorado/LideB/Docking/Tutorial/Archivos$ /home/virginia/ADFRsuite-1.0/bin/prepare\_ligand -l Ligando1.mol2 -o LIG.pdbqt
+
+Para mayor comodidad, el tutorial de AutoDock Vina proporciona el archivo (ver data directorio): **1iep\_ligand.sdf** 
 
 
 #### 3.Caja de Docking
