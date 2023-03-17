@@ -10,12 +10,14 @@
 
 3-A los **Resultados del Docking**, se los puede analizar mediante la **biblioteca Pandas** con **Google Colaboratory** y otras bibliotecas como **Seaborn, Scipy, Sklearn**, vistos también durante este Camp.
 
-4-Para poder llevar a cabo el Docking se deben aplicar otras herramientas tanto de la Bioinformática como de la Ciencia de Datos y Lenguaje de Programación, como por ejemplo el uso de **visualizadores moleculares**(como **Chimera** o **Pymol**) y los **IDEs** o **Entornos de Desarrollo** (como **Visual Studio Code** o **Spyder**).
+4-Para poder llevar a cabo el Docking se deben aplicar otras herramientas tanto de la Bioinformática como de la Ciencia de Datos y Lenguaje de Programación, como por ejemplo el uso de **visualizadores moleculares** (como **Chimera** o **Pymol**) y los **IDEs** o **Entornos de Desarrollo** (como **Visual Studio Code** o **Spyder**).
 
 
 ## **Bioinformática**
-**Docking Molecular: Acoplamiento proteína-ligando**
 
+Como herramienta bioinformática a implementar, decidí hacer mi primer Docking Molecular el cual se define como:
+
+**Docking Molecular: Acoplamiento proteína-ligando**
 El acoplamiento molecular es una técnica de **diseño de fármacos** basada en la estructura ampliamente utilizada. Utilizamos esta tecnología para **predecir las conformaciones 3D más probables de ligandos de moléculas pequeñas dentro de los sitios de unión objetivo** y para proporcionar proyecciones cuantitativas de las variaciones de energía involucradas en el evento de reconocimiento intermolecular. Además, estas estimaciones cuantitativas de la energía de unión  proporcionan clasificaciones para los compuestos acoplados, que es un parámetro útil para seleccionar ligandos para perfiles experimentales. En el diseño de fármacos, el método de acoplamiento molecular se utiliza principalmente para buscar moléculas pequeñas (hits) que tengan una buena afinidad con las moléculas diana de las bases de datos de moléculas pequeñas. >
 
 ### Software utilizado para el Docking Molecular: Autodock Vina
@@ -96,13 +98,13 @@ Existen muchas herramientas para agregar los átomos de hidrógeno faltantes a u
 
 3-Adicione átomos de hidrógeno y carga:
 
-1) Tools → Structure Editing → AddH → OK.
-2) Tools → Structure Editing → AddH →Gasteiger → OK.
+1) **Tools → Structure Editing → AddH → OK.**   Dado que el archivo de ligandos no incluye los átomos de hidrógeno, los agregaremos.
+2) **Tools → Structure Editing → AddH →Gasteiger → OK.**
 
 4-Guarde el PDB de la proteína, no la sesión.
 
 Luego procedemos a transformar el archivo de la proteína de un PDB a un PDBQT mediante:
-$ ubicacion/prepare\_receptor -r 1iep\_receptorH.pdb -o 1iep\_receptor.pdbqt
+**$ ubicacion/prepare\_receptor -r 1iep\_receptorH.pdb -o 1iep\_receptor.pdbqt**
 
 En mi computadora:
 (base) virginia@virginia-IdeaPad-3-15ITL6:~/Escritorio/Doctorado/LideB/Docking/Tutorial/Archivos$ /home/virginia/ADFRsuite-1.0/bin/prepare\_receptor -r 1iep\_conH.pdb -o 1iep\_conH\_final.pdbqt
@@ -111,11 +113,12 @@ adding gasteiger charges to peptide
 
 Nos devuelve en la carpeta donde estamos trabajando el pdb, un archivo del receptor en formato pdbqt
 
+
 #### 2. Preparación del ligando
 
 Este paso es muy similar al paso anterior. También crearemos un archivo PDBQT a partir de un archivo de molécula de ligando (en formato MOL/MOL2 o SDF) utilizando el Meeko paquete python (consulte las instrucciones de instalación aquí: Requisitos de software ).
 
-1iep\_ligand.sdf Para mayor comodidad, se proporciona el archivo (ver data directorio).
+**1iep\_ligand.sdf** Para mayor comodidad, se proporciona el archivo (ver data directorio).
 
 Pero puede obtenerlo directamente del PDB aquí: 1iep (ver enlace para la molécula STI).
 
@@ -125,24 +128,24 @@ Pero puede obtenerlo directamente del PDB aquí: 1iep (ver enlace para la moléc
 
 3-Adicione átomos de hidrógeno y carga:
 
-1) Tools → Structure Editing → AddH → OK.
-Dado que el archivo de ligandos no incluye los átomos de hidrógeno, los agregaremos automáticamente.
-2)Tools → Structure Editing → AddH →Gasteiger → OK.
+1) **Tools → Structure Editing → AddH → OK.**  Dado que el archivo de ligandos no incluye los átomos de hidrógeno, los agregaremos.
+2)**Tools → Structure Editing → AddH →Gasteiger → OK.**
 
 4-Guarde el MOL2 de ligando, no la sesión.
 
 Luego procedemos a transformar el archivo del ligando de un MOL2 a un PDBQT mediante:
-$ ubicacion/mk\_prepare\_ligand.py -i 1iep\_ligand.sdf -o 1iep\_ligand.pdbqt
+**$ ubicacion/mk\_prepare\_ligand.py -i 1iep\_ligand.sdf -o 1iep\_ligand.pdbqt**
 
 En mi computadora:
 (base) virginia@virginia-IdeaPad-3-15ITL6:~/Escritorio/Doctorado/LideB/Docking/Tutorial/Archivos$ /home/virginia/ADFRsuite-1.0/bin/prepare\_ligand -l Ligando1.mol2 -o LIG.pdbqt
+
 
 #### 3.Caja de Docking
 Para poder Dockear, debemos determinar la ubicación y el tamaño de la caja del Docking\. Para realizar esto recurrimos a la inspección visual del Ligando en la Proteína de estudio mediante un visualizador como Chimera o Pymol\.
 
 En mi caso utilicé el visualizador Chimera para poder definir ambos parámetros:
 
-1-Ubicación = Center [x, y, z]
+**1-Ubicación = Center [x, y, z]**
 
 Para mirar las coordenadas hay dos opciones:
 
@@ -153,23 +156,22 @@ Desde el Blanco: desde el blanco seleccionas un aminoacido el cual sea mas proba
 
 Una vez elegida la forma de proceder, para ver las coordenadas recurriremos a:
 
-Tools→Surface/BindingAnalysis → AutoDock Vina.
+**Tools→Surface/BindingAnalysis → AutoDock Vina.**
 
 
-2-Tamaño = Box\_size [n, n, n]
+**2-Tamaño = Box\_size [n, n, n]**
 
-Se clickea en Resize search volumen using “cambiar el tamaño del volumen de búsqueda usando” button x (tenes opciones para elegir diferentes botones)
+Se clickea en **Resize search volumen** using “cambiar el tamaño del volumen de búsqueda usando” button x (tenes opciones para elegir diferentes botones)
 
 Cambio el tamaño de la caja, en mi caso se disminuyo de tamaño
 
 
 #### 4.Script
-Una vez obtenidos los archivos PDBQT del receptor y el ligando, y los parámetros de la caja del Docking, es momento de armar el script con comandos en lenguaje Python para correr el Docking, utilizando el editor de código **Visual Studio Code**\.
+Una vez obtenidos los archivos PDBQT del receptor y el ligando, y los parámetros de la caja del Docking, es momento de armar el script con comandos en lenguaje **Python** para correr el Docking, utilizando el editor de código **Visual Studio Code**\.
 
 **Python\_ Script\_AutoDock VINA\_WBDS\_final**
 
-En este script deberemos setear:
-
+En este **script** deberemos setear:
 - Archivos en formato pdbqt de ligando y receptor con su respectiva ubicación.
 - Parámetros obtenidos anteriormente para la caja de docking (ubicación y tamaño)
 - Indicarle el número de poses a obtener del ligando
@@ -193,7 +195,6 @@ Una vez corrido el Docking, debemos analizar los datos del output y del archivo 
 **LIG.pdbqt**,-13.16
 
 **Resultados\_LIG.pdbqt**= Nos devuelve 8 modelos, debido a que de las 10 poses seteadas, el algoritmo solo puede resolver 8.
-
 
 Para realizar el analisis, se puede crear un **DataFrame** con los Scores obtenidos para cada conformación de ligando luego del Docking
 Con estos resultados vimos que el modelo 1 del ligando es el que mejor Score tiene (a valor más negativo de Score frente al resto de los valores, más estable es la interacción con la proteína).
@@ -238,7 +239,6 @@ En nuestro caso vemos que la correlación entre Modelo y Score es de 0.84, por l
 Otra forma útil de visualizar estas correlaciones es mediante un **mapa de calor** 🥵, que asigne puntos más claros a aquellos pares con mayor correlación:
 
 **sns.heatmap(correlaciones.abs())**
-
 
 Todo parece indicar que existe un vínculo entre el Modelo y el Score de este lote de datos. Con esto en mente, ya podemos intentar expresar este vínculo como **Score = f(Modelo)**, siendo f una función lineal, ¿no? 😀
 
@@ -343,6 +343,7 @@ Finalmente, concluímos que **la pose 1 del ligando fue la de mejor Score**, es 
 
 
 ## Bibliografía
+
 https://drug-discovery.creative-biostructure.com/molecular-docking-p39?gclid=CjwKCAjw_MqgBhAGEiwAnYOAevOfGSp5WSJB4Tyr0Arb2EnLM3ZAFGmpo2eS1pdeIy747onbp4UXBBoCyW8QAvD_BwE
 
 https://www.rcsb.org/structure/1iep
