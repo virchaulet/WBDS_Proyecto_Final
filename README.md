@@ -15,9 +15,9 @@
 
 ## **Bioinformática**
 
-Como herramienta bioinformática a implementar, decidí hacer mi primer Docking Molecular el cual se define como:
+Como herramienta bioinformática a implementar, decidí hacer mi primer **Docking Molecular** el cual se define como:
 
-**Docking Molecular: Acoplamiento proteína-ligando**
+**Acoplamiento proteína-ligando**
 El acoplamiento molecular es una técnica de **diseño de fármacos** basada en la estructura ampliamente utilizada. Utilizamos esta tecnología para **predecir las conformaciones 3D más probables de ligandos de moléculas pequeñas dentro de los sitios de unión objetivo** y para proporcionar proyecciones cuantitativas de las variaciones de energía involucradas en el evento de reconocimiento intermolecular. Además, estas estimaciones cuantitativas de la energía de unión  proporcionan clasificaciones para los compuestos acoplados, que es un parámetro útil para seleccionar ligandos para perfiles experimentales. En el diseño de fármacos, el método de acoplamiento molecular se utiliza principalmente para buscar moléculas pequeñas (hits) que tengan una buena afinidad con las moléculas diana de las bases de datos de moléculas pequeñas. >
 
 ### Software utilizado para el Docking Molecular: Autodock Vina
