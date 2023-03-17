@@ -58,7 +58,7 @@ Si vamos a la pestaña “3D View” de PDB  veremos la proteína en color verde
 
 La **drogabilidad** es un concepto que describe cuán factible es que la proteína blanco se una fuertemente a un compuesto tipo droga (típicamente Kd menor a 1 μM) y que dicha unión sea biológicamente relevante, es decir, desencadene el efecto farmacológico deseado.
 
-En el **diseño racional de fármacos** resulta esencial caracterizar las interacciones moleculares que puede ofrecer el blanco proteico para ser aprovechadas por moléculas pequeñas o compuestos tipo droga. La identificación de hot spots o regiones en la superficie proteica que aportan una gran contribución a la energía libre de unión proteína-ligando y, por ende, resultan cruciales para establecer dicha unión, sirve tanto para evaluar la drogabilidad de un posible  blanco como para optimizar compuestos líderes en cuanto al incremento de su afinidad>
+En el **diseño racional de fármacos** resulta esencial caracterizar las interacciones moleculares que puede ofrecer el blanco proteico para ser aprovechadas por moléculas pequeñas o compuestos tipo droga. La identificación de las regiones en la superficie proteica que aportan una gran contribución a la energía libre de unión proteína-ligando y, por ende, resultan cruciales para establecer dicha unión, sirve tanto para evaluar la drogabilidad de un posible  blanco como para optimizar compuestos líderes en cuanto al incremento de su afinidad>
 
 Si buscamos más información con respecto a la **drogabilidad de esta proteína** lo podremos hacer en **CaviDB**, una base de datos en línea gratuita que provee información sobre las cavidades proteicas y sus propiedades, que permite estudiar también la diversidad conformacional de las cavidades proteicas.
 
