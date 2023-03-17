@@ -137,7 +137,7 @@ Existen muchas herramientas para agregar los átomos de hidrógeno faltantes y l
 
 i) **Tools → Structure Editing → AddH → OK.**  Dado que el archivo de ligandos no incluye los átomos de hidrógeno, los agregaremos.
 
-ii)**Tools → Structure Editing → AddCharges → Gasteiger → OK.**
+ii) **Tools → Structure Editing → AddCharges → Gasteiger → OK.**
 
 4-Guarde el **MOL2 de ligando**, no la sesión.
 
@@ -151,7 +151,7 @@ Para mayor comodidad, el tutorial de AutoDock Vina proporciona el archivo (ver d
 
 
 #### 3.Caja de Docking
-Para poder Dockear, debemos determinar la ubicación y el tamaño de la caja del Docking\. Para realizar esto recurrimos a la inspección visual del Ligando en la Proteína de estudio mediante un visualizador como Chimera o Pymol\.
+Para poder Dockear, debemos determinar la ubicación y el tamaño de la caja del Docking\. Para realizar esto recurrimos a la **inspección visual del Ligando en la Proteína de estudio** mediante un visualizador como **Chimera o Pymol**\.
 
 En mi caso utilicé el visualizador Chimera para poder definir ambos parámetros:
 
@@ -159,9 +159,9 @@ En mi caso utilicé el visualizador Chimera para poder definir ambos parámetros
 
 Para mirar las coordenadas hay dos opciones:
 
-Desde el Ligando: te centras en el Ligando y clickeas
+i-Desde el Ligando: te centras en el Ligando y clickeas
 
-Desde el Blanco: desde el blanco seleccionas un aminoacido el cual sea mas probable que interaccione por la visualización.
+ii-Desde el Blanco: desde el blanco seleccionas un aminoacido el cual sea mas probable que interaccione por la visualización.
 
 
 Una vez elegida la forma de proceder, para ver las coordenadas recurriremos a:
@@ -173,27 +173,27 @@ Una vez elegida la forma de proceder, para ver las coordenadas recurriremos a:
 
 Se clickea en **Resize search volumen** using “cambiar el tamaño del volumen de búsqueda usando” button x (tenes opciones para elegir diferentes botones)
 
-Cambio el tamaño de la caja, en mi caso se disminuyo de tamaño
+Cambio el tamaño de la caja, en mi caso se disminuyó de tamaño
 
 
 #### 4.Script
-Una vez obtenidos los archivos PDBQT del receptor y el ligando, y los parámetros de la caja del Docking, es momento de armar el script con comandos en lenguaje **Python** para correr el Docking, utilizando el editor de código **Visual Studio Code**\.
+Una vez obtenidos los archivos PDBQT del receptor y el ligando, y los parámetros de la caja del Docking, es momento de armar el **script para Dockear** con script en lenguaje **Python**, utilizando el editor de código **Visual Studio Code**\.
 
 **Python\_ Script\_AutoDock VINA\_WBDS\_final**
 
 En este **script** deberemos setear:
-- Archivos en formato pdbqt de ligando y receptor con su respectiva ubicación.
-- Parámetros obtenidos anteriormente para la caja de docking (ubicación y tamaño)
-- Indicarle el número de poses a obtener del ligando
-- La exhaustividad con la que se trabajará, es decir  la cantidad de esfuerzo computacional utilizado durante un experimento de acoplamiento. El valor de exhaustividad predeterminado es 8, pero al aumentarlo dará un resultado de acoplamiento más consistente. Es por eso que al aumentar la exhaustividad, podemos pedirle menos poses del ligando, ya que nos devolverá las poses más confiables.
-- El campo de fuerza
-- También debemos crear los archivos.txt de el output\_file  y el readme\_file indicando su ubicación.
+- **Archivos** en formato **pdbqt** de **ligando** y **receptor** con su respectiva ubicación.
+- **Parámetros** obtenidos anteriormente para la **caja de docking** (ubicación y tamaño)
+- Indicarle el **número de poses** a obtener del **ligando**
+- La **exhaustividad** con la que se trabajará, es decir  la cantidad de esfuerzo computacional utilizado durante un experimento de acoplamiento. El valor de exhaustividad predeterminado es 8, pero al aumentarlo dará un resultado de acoplamiento más consistente. Es por eso que al aumentar la exhaustividad, podemos pedirle menos poses del ligando, ya que nos devolverá las poses más confiables.
+- El **campo de fuerza**
+- También debemos crear los **archivos.txt** de el **output\_file**  y el **readme\_file** indicando su ubicación.
 
 Nota: Para este archivo.py se usaron los script de open access dados por el tutorial de Autodock Vina para Dockear.
 
 
 #### 5. Corrida del Docking
-Abro una terminal y en la misma llamo a Python\_ Script\_AutoDock VINA\_WBDS\_final y lo ejecuto\.
+Abro una **terminal** de Linux y en la misma llamo a **Python\_ Script\_AutoDock VINA\_WBDS\_final** y lo ejecuto\.
 
 
 ## **Ciencia de Datos**
