@@ -145,7 +145,7 @@ Luego procedemos a transformar el archivo del ligando de un **MOL2** a un **PDBQ
 **$ ubicacion/mk\_prepare\_ligand.py -i 1iep\_ligand.sdf -o 1iep\_ligand.pdbqt**
 
 En mi computadora:
-(base) virginia@virginia-IdeaPad-3-15ITL6:~/Escritorio/Doctorado/LideB/Docking/Tutorial/Archivos$ /home/virginia/ADFRsuite-1.0/bin/prepare\_ligand -l Ligando1.mol2 -o LIG.pdbqt
+(base) virginia@virginia-IdeaPad-3-15ITL6:~/Escritorio/Doctorado/LideB/Docking/Tutorial/Archivos$ /home/virginia/ADFRsuite-1.0/bin/prepare\_ligand -i Ligando1.mol2 -o LIG.pdbqt
 
 Para mayor comodidad, el tutorial de AutoDock Vina proporciona el archivo (ver data directorio): **1iep\_ligand.sdf** 
 
