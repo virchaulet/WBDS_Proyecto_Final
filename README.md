@@ -372,4 +372,4 @@ https://www.cavidb.org/chains/6290f658d58b5cfe1dd4c12a?q=1IEP
 
 https://bibliotecadigital.exactas.uba.ar/download/tesis/tesis_n6457_Arcon.pdf
 
-https://autodock-vina.readthedocs.io/en/latest/docking\_python.html#
+https://autodock-vina.readthedocs.io/en/latest/docking_python.html
