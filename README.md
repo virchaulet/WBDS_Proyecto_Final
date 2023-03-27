@@ -179,7 +179,7 @@ Cambio el tamaño de la caja, en mi caso se disminuyó de tamaño
 #### 4.Script
 Una vez obtenidos los archivos PDBQT del receptor y el ligando, y los parámetros de la caja del Docking, es momento de armar el **script para Dockear** con script en lenguaje **Python**, utilizando el editor de código **Visual Studio Code**\.
 
-**Python\_ Script\_AutoDock VINA\_WBDS\_final**
+**Python\_ Script\_AutoDockVINA\_WBDS\_final**
 
 En este **script** deberemos setear:
 - **Archivos** en formato **pdbqt** de **ligando** y **receptor** con su respectiva ubicación.
@@ -193,7 +193,7 @@ Nota: Para este archivo.py se usaron los script de open access dados por el tuto
 
 
 #### 5. Corrida del Docking
-Abro una **terminal** de Linux y en la misma llamo a **Python\_ Script\_AutoDock VINA\_WBDS\_final** y lo ejecuto\.
+Abro una **terminal** de Linux y en la misma llamo a **Python\_ Script\_AutoDockVINA\_WBDS\_final** y lo ejecuto\.
 
 
 ## **Ciencia de Datos**
